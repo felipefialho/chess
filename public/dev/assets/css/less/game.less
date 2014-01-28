@@ -1,0 +1,204 @@
+// 
+// Container
+// --------------------------------------------------
+ 
+.game-painel{
+    padding: @line-height-computed/2 @line-height-computed;
+}
+
+.game-wrap{
+    position: relative; 
+}
+  
+.game-main{
+    position: fixed; left: 0; top: 0;
+    width: 50%; 
+}
+  
+.game-aside{
+    float: right;
+    width: 50%; 
+}
+   
+// Queries
+// --------------------------------------------------
+  
+@media (max-width: @container-md) {
+   
+    .game-main{
+        position: static;
+        width: auto;
+    }
+   
+    .game-aside{
+        float: none;
+        width: auto; 
+    }
+  
+}
+  
+// 
+// Status
+// --------------------------------------------------
+  
+.status{
+    background: @brand-success;
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: @line-height-computed/4;
+    vertical-align: middle;
+    width: 10px;
+    &.off{
+        background: @brand-danger;
+    }
+}
+ 
+// Time
+// --------------------------------------------------
+  
+.time{
+    float: left;
+    font-size: 12px;
+}
+ 
+// Painel Box
+// --------------------------------------------------
+  
+.painel-wrap{
+    clear: both;
+    font-size: 11px;
+    margin-top: @line-height-computed;
+    .make-row();
+}
+  
+.messages-container,
+.log-container{
+    background: darken(#fff, 0.5%);
+    border-radius: 3px;
+    border: 1px solid @hr-border;
+    height: 250px; 
+    overflow-y: auto;
+}
+  
+.messages-content,
+.log-list{
+    padding: @line-height-computed/4;
+}
+  
+// Message
+// --------------------------------------------------
+  
+.messages-wrap{
+    .make-lg-column(7);
+}
+  
+// Message log 
+.messages-box{
+    margin-bottom: @line-height-computed/2;
+  
+    &.reply{ 
+  
+        .message{
+            background: lighten(@brand-primary, 45%);
+            &:after{  
+                border-right-color: lighten(@brand-primary, 45%); 
+            } 
+        }
+   
+    }
+  
+}
+  
+.message{
+    background: lighten(@brand-primary, 40%);
+    border: #ddd solid 1px;
+    display: inline-block; 
+    margin: 0 @line-height-computed/2; 
+    padding: @line-height-computed/4;
+    position: relative;
+    max-width: 80%;
+    text-align: left;
+    vertical-align: top;
+   
+    &:after{ 
+        content: "";
+        width: 1px;
+        height: 0;
+        border: solid 10px transparent;
+        border-right: solid 10px lighten(@brand-primary, 40%);
+        border-left: none;
+        position: absolute; left: -10px; top: 5px;
+    } 
+  
+    &:before{ 
+        content: "";
+        width: 1px;
+        height: 0;
+        border: solid 11px transparent;
+        border-right: solid 11px #ddd;
+        border-left: none;
+        position: absolute; left: -11px; top: 4px;
+    } 
+}
+  
+.message-date{
+    display: block;
+    font-size: 9px;
+    text-align: right;
+    margin-top: @line-height-computed/2;
+}
+  
+// Send message
+.messages-send{ 
+    border-radius: 3px;
+    border: 1px solid @hr-border;
+    display: block;
+    font-family: @font-family-sans-serif;
+    margin-top: @line-height-computed/2;
+    padding: @line-height-computed/2; 
+    width: 100%; 
+    .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s"); 
+    .box-shadow(inset 0 1px 1px rgba(0,0,0,.005));
+  
+    .form-control-focus();
+}
+
+.messages-btn{
+    float: right;
+    margin-top: @line-height-computed/2;
+}
+  
+  
+   
+// Log
+// --------------------------------------------------
+  
+.log-wrap{
+    .make-lg-column(5);
+}   
+  
+.log-list{
+    font-size: 11px;
+    li{
+        border-bottom: 1px solid lighten(@hr-border, 3%);
+        margin-bottom: @line-height-computed/4; 
+        padding-bottom: @line-height-computed/4; 
+    }
+} 
+
+// States
+// --------------------------------------------------
+
+.p-end{
+    font-size: 26px;
+    text-align: center;
+
+    .smile{
+        display: block;
+        font-size: 56px;
+    }
+}
+
+.p-success{color: @brand-success;}
+.p-danger{color: @brand-danger;}

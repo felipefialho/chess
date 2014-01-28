@@ -1,0 +1,296 @@
+// 
+// Header
+// --------------------------------------------------
+ 
+.header{ 
+    background: @gray-darker;
+}   
+ 
+// Logo
+// --------------------------------------------------
+
+.logo{
+    margin: @line-height-computed/2 0;
+    font-size: 18px;
+    a{
+        color: #fff;
+        .transition(.1s);
+        &:hover{
+            color: @gray-lighter;
+            text-decoration: none;
+        }
+    }
+}
+
+.logo-t{
+    span{
+        color: #aaa;
+    }
+}
+
+// 
+// Language
+// --------------------------------------------------
+ 
+.language{
+    position: absolute; 
+    right: @line-height-computed; 
+    top: 0;
+    margin-top: @line-height-computed/2;
+    li{
+        color: #fff;
+        display: inline-block;
+        &:first-child{
+            &:after{
+                content: "|";
+                margin: 0 @line-height-computed/4; 
+            }
+        }
+    }
+    a{
+        color: #fff;
+        margin: 0 @line-height-computed/4; 
+        &.active{
+            color: lighten(@brand-primary, 30%);
+        }
+    }
+}
+
+// 
+// Painel
+// --------------------------------------------------
+  
+.painel{ padding: @line-height-computed 0;}
+     
+// 
+// Container
+// --------------------------------------------------
+ 
+.wrap{
+    .make-row();
+}
+
+.main{
+    .make-lg-column(8);
+}   
+  
+.aside{
+    .make-lg-column(4);
+}  
+
+// 
+// Profile
+// --------------------------------------------------
+ 
+.profile{
+    background: lighten(@gray-lighter, 5%);
+    border: @gray-lighter 1px solid;
+    padding: @line-height-computed/4;
+}
+
+.profile-info,
+.profile-photo{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.profile-photo{
+    border: @gray-light 1px solid;
+    margin-right: @line-height-computed/2;
+}
+
+.profile-info{
+    width: 80%;
+}
+
+// Profile Games
+// --------------------------------------------------
+ 
+.profile-games{ 
+    margin-bottom: 5px;
+}
+
+// Games Painel
+// --------------------------------------------------
+ 
+.games-painel{ 
+    margin-top: @line-height-computed;
+
+    h3{
+        margin-bottom: @line-height-computed;
+    }
+}
+
+// 
+// Users
+// --------------------------------------------------
+  
+.list-users{
+    height: 300px;
+    overflow-y: auto;
+
+    li{
+        border-bottom: @gray-lighter solid 1px;
+    }
+
+}
+ 
+.users-box{
+    h4{
+        margin: 0 0 @line-height-computed/2;
+    }
+    .list-users{
+        border: @gray-lighter solid 1px;
+        border-top: 0;
+        padding: @line-height-computed/4 0;
+    }
+}
+  
+.users-invite{
+    display: block;
+    font-size: 12px;
+    padding: @line-height-computed/4 @line-height-computed/2;
+
+    .results{
+        color: @text-color;
+        font-size: 11px;
+        display: block;
+    }
+
+    &:hover{
+        background: lighten(@brand-primary, 40%);
+    }
+
+}
+  
+// User
+// --------------------------------------------------
+   
+.user-box{
+    margin-bottom: @line-height-computed/4;
+    .make-lg-column(5);
+    &.active{
+        .user-box-content{ 
+            border-color: lighten(@brand-primary, 30%);
+        }
+    }
+}
+
+.user-box-content{
+    border: transparent 1px solid;
+    padding: 5px; 
+}
+   
+.user-photo,
+.user-info{
+    display: inline-block;
+    vertical-align: middle;
+}
+  
+.user-photo{
+    border: #ddd solid 1px;
+    margin-right: @line-height-computed/4;
+    &:hover{
+        border-color: #aaa;
+    }
+}
+   
+.user-name{
+    display: block;
+    font-size: 12px;
+    color: @brand-primary;
+}
+  
+.user-status{
+    display: block;
+    font-size: 11px;
+    color: @gray-light;
+}
+
+.out-pieces-box{
+    list-style: none;
+    margin: 0;
+    text-align: center;
+    width: 160px; 
+}
+
+.piece-out{
+    display: inline-block;
+    font-size: 25px;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+
+    &.white{
+        color: #fff;
+        text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+}
+
+// 
+// Author
+// --------------------------------------------------
+  
+.author{
+    margin: @line-height-computed 0 @line-height-computed/4;
+}
+
+// 
+// Social
+// --------------------------------------------------
+  
+.social-media{
+    list-style: none;
+    margin: 0;
+    li{
+        display: inline-block;
+        margin: 0 5px;
+    }
+    a{
+        transition: color .1s linear;
+        color: #444;
+        font-size: 20px;
+        &:hover{
+            color: #777;
+            text-decoration: none;
+        }
+    }
+}
+
+// Support
+// --------------------------------------------------
+  
+.logo-support{
+    display: block;
+    margin: @line-height-computed 0;
+    width: 100px;
+}
+  
+// Share
+// --------------------------------------------------
+  
+.share{
+  height: @line-height-computed;
+}
+  
+// Fork
+// --------------------------------------------------
+  
+.fork{
+    position: absolute;
+    right: 0;
+    top: 0; 
+}
+  
+  
+// Out
+// --------------------------------------------------
+  
+.out-box{
+    color: @brand-danger;
+    font-size: 12px;
+    float: right;
+    margin-bottom: @line-height-computed/2;
+    &:hover{ 
+        color: darken(@brand-danger, 15%);
+    }
+}
+   

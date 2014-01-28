@@ -1,0 +1,135 @@
+mixin translateDaysPassed(from, to)
+    -var days = moment(to).diff(from, 'days')
+    
+    if (days >= 365)
+        return #{parseInt(days / 365)} year(s) ago
+    else if (days >= 30)
+        return #{parseInt(days / 30)} month(s) ago
+    else if (days >= 7)
+        return #{parseInt(days / 7)} week(s) ago
+    else
+        return #{parseInt(days)} day(s) ago
+
+
+mixin translateHoursPassed(from, to)
+    -var hours = moment(to).diff(from, 'hours')
+    
+    if (hours >= 24)
+        +translateDaysPassed(from, to)
+    else
+        return #{parseInt(hours)} hours(s) ago
+
+mixin translateMinsPassed(from, to)
+    -var mins = moment(to).diff(from, 'minutes')
+    
+    if (mins > 59)
+        +translateHoursPassed(from, to)
+    else
+        return #{parseInt(mins)} min(s) ago
+
+extend tpls/chess
+     
+block body    
+          
+    section.container
+        .painel 
+            h3.wellness-l Hi, #{user.name}
+
+            a(href='/chess/').out-box Logoff 
+                span(aria-hidden="true").icon-logout 
+
+            hr
+
+            .wrap    
+                article.main 
+                    .profile
+                        .profile-photo
+                            img(src=user.picture)
+                        ul.profile-info
+                            li.profile-games 
+                                a(href="#collapse-1", data-toggle="collapse", data-parent="#accordion") Wins: 
+                                    b #{wins.length}   
+                                    span(aria-hidden="true").icon-arrow-down
+                                .panel-collapse.collapse#collapse-1
+                                    table.table.table-condensed
+                                        tbody
+                                            each win in wins
+                                                tr 
+                                                    td #{moment(win.endDate).format("DD/MM/YY")}
+                                                    td #{win.players.p1.name} x #{win.players.p2.name}
+                                                    td 
+                                                        +translateMinsPassed(win.endDate, new Date())
+ 
+                            li.profile-games 
+                                a(href="#collapse-2", data-toggle="collapse", data-parent="#accordion") Loses: 
+                                    b #{loses.length}  
+                                    span.icon-arrow-down(aria-hidden="true")
+                                .panel-collapse.collapse#collapse-2
+                                    table.table.table-condensed
+                                        tbody
+                                            each lose in loses
+                                                tr 
+                                                    td #{moment(lose.endDate).format("DD/MM/YY")}
+                                                    td #{lose.players.p1.name} x #{lose.players.p2.name}
+                                                    td 
+                                                        +translateMinsPassed(lose.endDate, new Date())
+
+                    .games-painel
+                        h3 Active games
+
+                        h4 Waiting you move
+                        table.table.table-hover
+                            tbody
+                                each room in rooms
+                                    if (((room.players.p1._id.toString() == user._id.toString()) && (room.turn == 1)) || ((room.players.p2._id.toString() == user._id.toString()) && (room.turn == 2)))
+                                        tr(id=room._id)
+                                            td 
+                                                a(href='/chess/game/'+room._id) 
+                                                    span(aria-hidden="true").icon-stop
+                                            td 
+                                                a(href='/chess/game/'+room._id) #{room.players.p1.name} x #{room.players.p2.name}
+                                            td    
+                                                a(href='/chess/game/'+room._id)
+                                                    +translateMinsPassed(room.created, new Date())
+                                            td    
+                                                a(href='chess//game/'+room._id) 
+                                                    span(aria-hidden="true").icon-login
+
+                        h4 Waiting your friend move
+                        table.table.table-hover
+                            tbody
+                                each room in rooms
+                                    if (((room.players.p1._id.toString() == user._id.toString()) && (room.turn == 2)) || ((room.players.p2._id.toString() == user._id.toString()) && (room.turn == 1)))
+                                        tr(id=room._id)
+                                            td 
+                                                a(href='/chess/game/'+room._id) 
+                                                    span(aria-hidden="true").icon-wait
+                                            td 
+                                                a(href='/chess/game/'+room._id) #{room.players.p1.name} x #{room.players.p2.name}
+                                            td    
+                                                a(href='/chess/game/'+room._id)
+                                                    +translateMinsPassed(room.created, new Date())
+                                            td    
+                                                a(href='/chess/game/'+room._id) 
+                                                    span(aria-hidden="true").icon-login
+
+                aside.aside                                  
+                    .users-box
+                        h4 Challenge your friends
+                        form.form-search
+                            input(type="search", placeholder="Search your friends").search-input.form-control
+                            button.search-btn
+                               span(aria-hidden="true").icon-search    
+                        ul.list-users
+                            each friend in fbUser.friends.data
+                                li(data-name=friend.name.toLowerCase())
+                                    a(href='#', class='challenger', data-id=friend.id, data-name=friend.name).users-invite
+                                        .user-photo
+                                            img(src=friend.picture.data.url)
+                                        .user-info 
+                                            | #{friend.name} <br>
+                                            <span class="results">Wins: #{friendsInfo[friend.id] ? friendsInfo[friend.id].wins : 0}</span>
+                                            <span class="results">Loses: #{friendsInfo[friend.id] ? friendsInfo[friend.id].loses : 0}</span>
+
+block scripts
+    script(type='text/javascript', src='/assets/js/home.min.js')
