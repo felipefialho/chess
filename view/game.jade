@@ -142,7 +142,7 @@ block body
                         h6 Messages
                         .messages-container
                             .messages-content
-                                each chat in room.chat.reverse()
+                                each chat in room.chat
                                     +chatMsg(chat.player, {msg: chat.message, date:chat.date})
 
                         textarea(row="5").messages-send

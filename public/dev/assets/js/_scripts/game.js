@@ -1,11 +1,15 @@
 (function() {
     'use strict';
     var socket = io.connect('/chess');
+    var msgContent = $('.messages-container');
+    msgContent[0].scrollTop = msgContent[0].scrollHeight;
     
     // Functions
     var addChatMsg = function(data) {
-        $('.messages-content')
-            .prepend('<div class="messages-box reply"><a class="user-photo"><img src="'+players[data.player].picture+'" /></a><p class="message">'+data.message.replace(/\n/g, '<br>')+'<span class="message-date">'+data.date+'</span></p></div>');
+        msgContent
+            .append('<div class="messages-box reply"><a class="user-photo"><img src="'+players[data.player].picture+'" /></a><p class="message">'+data.message.replace(/\n/g, '<br>')+'<span class="message-date">'+data.date+'</span></p></div>');
+
+            msgContent[0].scrollTop = msgContent[0].scrollHeight;
     };
     
     var addLog = function(type, playerid, date, msg) {
