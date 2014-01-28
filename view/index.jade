@@ -1,0 +1,108 @@
+extend tpls/chess
+ 
+block body 
+
+    section.container 
+
+        header.wellness
+            a.fork(href="https://github.com/chessjs/chess")  
+                img(src="/assets/img/ico/fork.png")
+
+            h1.logo-t C
+                span he
+                | SS.js
+            p  A modern and light chess game developed with HTML, CSS and Javascript.
+            p 
+                a.btn.btn-lg.btn-primary(href="/chess/home/") Play now!  
+            .fb-box
+                .fb-login-button(data-width="340", data-height="40", data-max-rows="1", data-show-faces="true")
+
+        .wrap    
+            article.main  
+                h2 About
+
+                p CheSS.js works only in modern browsers. 
+ 
+                h3 Instructions
+
+                ol 
+                    li Log with your Facebook account
+                    li Invite your friends for a match
+                    li Make your move and wait for your friend
+                    li The movements can be made ​​anytime
+                    li Enjoy! 
+
+                hr
+
+                h4 Development
+
+                p.author Thiago Genuino 
+            
+                ul.social-media
+                    li 
+                        a(href="https://www.facebook.com/thiagogenuino")
+                            span.icon-facebook(aria-hidden="true")
+                    li 
+                        a(href="https://twitter.com/tgenuino")
+                            span.icon-twitter(aria-hidden="true") 
+                    li 
+                        a(href="http://www.linkedin.com/pub/thiago-genuino/37/b58/b3")
+                            span.icon-linkedin(aria-hidden="true")  
+ 
+                p.author 
+                    a(href="http://www.felipefialho.com/", target="_blank") Luiz Felipe Tartarotti Fialho
+        
+                ul.social-media
+                    li 
+                        a(href="https://www.facebook.com/LFehh")
+                            span.icon-facebook(aria-hidden="true")
+                    li 
+                        a(href="https://twitter.com/LFeh")
+                            span.icon-twitter(aria-hidden="true")
+                    li 
+                        a(href="https://github.com/LFeh")
+                            span.icon-github(aria-hidden="true") 
+                    li 
+                        a(href="http://www.linkedin.com/in/lfehfrontend")
+                            span.icon-linkedin(aria-hidden="true") 
+                    li.hidden
+                        a(href="https://plus.google.com/101721187531748531230?rel=author)") Google + 
+                hr
+                            
+                h4 Support
+                    a(href="http://www.trendi.com.br/").logo-support
+                        img(src="/assets/img/logo/logo-trendi.svg")
+ 
+            aside.aside    
+
+                .wellness
+                    h2 Registered users
+                    p.highlight #{allUsers}
+
+                .wellness
+                    h2 Active games
+                    p.highlight.highlight-success #{activeGames}
+
+                .wellness
+                    h2 Created games
+                    p.highlight.highlight-info #{allGames}
+
+        hr            
+
+        .comments            
+            div(id="disqus_thread")
+            script.
+                var disqus_shortname = 'boardchess'; 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+
+            noscript Please enable JavaScript to view the 
+                a(href="http://disqus.com/?ref_noscript") comments powered by Disqus.
+                a(href="http://disqus.com").dsq-brlink comments powered by 
+                    span.logo-disqus Disqus 
+      
+
+block scripts 

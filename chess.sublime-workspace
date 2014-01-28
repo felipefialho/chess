@@ -1,0 +1,489 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rooms",
+				"roomsFinisheds"
+			],
+			[
+				"col",
+				"colIdx"
+			],
+			[
+				"piece",
+				"pieceType"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.js",
+			"settings":
+			{
+				"buffer_size": 6874,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/validate.js",
+			"settings":
+			{
+				"buffer_size": 2232,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "view/home.jade",
+			"settings":
+			{
+				"buffer_size": 4929,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/dev/assets/js/home.min.js",
+			"settings":
+			{
+				"buffer_size": 506,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "controller/home.js",
+			"settings":
+			{
+				"buffer_size": 1151,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "model/room.js",
+			"settings":
+			{
+				"buffer_size": 5568,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/grunt-watch-chess.sublime-build",
+	"command_palette":
+	{
+		"height": 159.0,
+		"selected_items":
+		[
+			[
+				"grun",
+				"Grunt"
+			],
+			[
+				"grunt",
+				"Grunt"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"jade",
+				"Set Syntax: Jade"
+			],
+			[
+				"pacla",
+				"Package Control: Install Package"
+			],
+			[
+				"paca",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"cd",
+			"grunt watch",
+			"cd /var/www",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read()) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/thiago/Dropbox/Public/jogos.html",
+		"/var/www/cpbr7/chess/model/room.js",
+		"/var/www/cpbr7/chess/model/user.js",
+		"/var/www/cpbr7/chess/public/dev/assets/js/_scripts/game.js",
+		"/var/www/cpbr7/chess/controller/game.js",
+		"/var/www/cpbr7/chess/view/game.jade",
+		"/var/www/cpbr7/chess/public/dev/assets/js/home.min.js",
+		"/var/www/cpbr7/chess/controller/home.js",
+		"/home/thiago/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/thiago/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/var/www/cpbr7/chess/index.js.bkp",
+		"/var/www/cpbr7/chess/public/Gruntfile.js",
+		"/var/www/cpbr7/apps/chess/index.js",
+		"/home/thiago/.config/sublime-text-3/Packages/User/grunt-watch-chess.sublime-build",
+		"/var/www/cpbr7/chess/public/_npm.bat",
+		"/home/thiago/.config/sublime-text-3/Packages/Grunt/SublimeGrunt.sublime-settings",
+		"/home/thiago/.config/sublime-text-3/Packages/User/SublimeGrunt.sublime-settings",
+		"/var/www/cpbr7/chess/public/dev/assets/js/_scripts/chess/game.js",
+		"/var/www/cpbr7/chess/schemas/room.js",
+		"/var/www/cpbr7/server/connector.js",
+		"/var/www/cpbr7/chess/index.js",
+		"/var/www/cpbr7/chess/controller/create.js",
+		"/var/www/cpbr7/chess/view/home.jade",
+		"/var/www/cpbr7/chess/lib/functions.js",
+		"/var/www/cpbr7/chess/node_modules/socket.io/index.js",
+		"/home/thiago/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/thiago/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/var/www/cpbr7/chess/chess.sublime-project"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"colIn",
+			"colIdx",
+			"colIndexlineIndex",
+			"board",
+			"colIndex",
+			"Chess",
+			"2",
+			"1",
+			",\n            d: {\n                1: { player: null, piece: null },\n                2: { player: null, piece: null },\n                3: { player: null, piece: null },\n                4: { player: null, piece: null },\n                5: { player: null, piece: null },\n                6: { player: null, piece: null },\n                7: { player: null, piece: null },\n                8: { player: null, piece: null },\n            }",
+			",\n            c: {\n                1: { player: null, piece: null },\n                2: { player: null, piece: null },\n                3: { player: null, piece: null },\n                4: { player: null, piece: null },\n                5: { player: null, piece: null },\n                6: { player: null, piece: null },\n                7: { player: null, piece: null },\n                8: { player: null, piece: null },\n            }",
+			"'pawn'",
+			" 'pawn' ",
+			"'pawn'",
+			" },",
+			" 'pawn' ",
+			"'pawn'",
+			" },",
+			" 'pawn' ",
+			"'pawn'",
+			"1",
+			">');\n",
+			"player1",
+			"populate",
+			");\n",
+			"        $('.",
+			"io.",
+			"io",
+			"loadModel",
+			"getControl",
+			"socket",
+			"player",
+			"room.players.p2",
+			"room.players.p1",
+			"tab"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1391,
+								1391
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lib/validate.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								183,
+								183
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "view/home.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3938,
+								3950
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1122.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/dev/assets/js/home.min.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								506,
+								506
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "controller/home.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1151,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								574,
+								574
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "model/room.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5568,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5432,
+								5432
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1581.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"project": "chess.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,230 @@
+// Create the peace
+mixin piece(name, place, playerIdx)
+    -var iconClass = (name ? 'icon-'+name : '')
+    -var addClass = playerIdx == 1 ? 'white' : 'black'
+    -name = name || ''
+
+    li(class='chess-cl '+place, data-position=place, title=name.toUpperCase())
+        span(class='piece in '+name+' '+addClass, data-player=playerIdx)
+            span(aria-hidden='true', class=iconClass)
+
+// Add message in the chat
+mixin chatMsg(user, message)
+    -var reply = (user._id.toString() == player1._id.toString() ? 0 : 1);
+
+    div(class='messages-box '+(reply ? 'reply' : ''))
+        a.user-photo
+            img(src=user.picture)
+        p.message 
+            span.message-text !{message.msg.replace(/\n/g, '<br>')}
+            span.message-date #{moment(message.date).format("DD/MM/YYYY HH:mm")}
+
+mixin addLog(log)
+    li
+        span [ #{moment(log.date).format("DD/MM/YY HH:mm")} ] 
+        a(href='#') #{log.player.name.split(' ')[0]}
+        | : #{log.data.piece} #{log.data.from}:#{log.data.to}
+
+
+extend tpls/chess
+block scripts
+    script.
+        var roomId = '#{roomId}';
+        var playerId = '#{player1._id}';
+        var playerIdx = '#{playerIdx}';
+        var enemyId = '#{player2._id}';
+        var players = {
+            '#{player1._id}': {
+                name: '#{player1.name}',
+                picture: '#{player1.picture}'
+            },
+            '#{player2._id}': {
+                name: '#{player2.name}',
+                picture: '#{player2.picture}'
+            }
+        };
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    script(type='text/javascript', src='/assets/js/game.min.js')
+
+block header  
+    
+block body
+ 
+    .game-wrap
+        .game-main
+            .chess
+                ol.chess-board
+                    if (playerIdx == 1)
+                        each col, position in room.board.h
+                            +piece(col.piece, 'h'+ (position*1), col.player)
+                            
+                        each col, position in room.board.g
+                            +piece(col.piece, 'g'+ (position*1), col.player)
+
+                        each col, position in room.board.f
+                            +piece(col.piece, 'f'+ (position*1), col.player)
+                            
+                        each col, position in room.board.e
+                            +piece(col.piece, 'e'+ (position*1), col.player)
+                            
+                        each col, position in room.board.d
+                            +piece(col.piece, 'd'+ (position*1), col.player)
+                            
+                        each col, position in room.board.c
+                            +piece(col.piece, 'c'+ (position*1), col.player)
+                            
+                        each col, position in room.board.b
+                            +piece(col.piece, 'b'+ (position*1), col.player)
+
+                        each col, position in room.board.a
+                            +piece(col.piece, 'a'+ (position*1), col.player)
+                    else
+                        each col, position in room.board.a
+                            +piece(col.piece, 'a'+ (position*1), col.player)
+                            
+                        each col, position in room.board.b
+                            +piece(col.piece, 'b'+ (position*1), col.player)
+                            
+                        each col, position in room.board.c
+                            +piece(col.piece, 'c'+ (position*1), col.player)
+                            
+                        each col, position in room.board.d
+                            +piece(col.piece, 'd'+ (position*1), col.player)
+                            
+                        each col, position in room.board.e
+                            +piece(col.piece, 'e'+ (position*1), col.player)
+                            
+                        each col, position in room.board.f
+                            +piece(col.piece, 'f'+ (position*1), col.player)
+                            
+                        each col, position in room.board.g
+                            +piece(col.piece, 'g'+ (position*1), col.player)
+                            
+                        each col, position in room.board.h
+                            +piece(col.piece, 'h'+ (position*1), col.player)
+                    
+
+        aside.game-aside
+            .game-painel
+                p.time(data-start=moment(room.created).format('YYYYMMDDHHmmss')) Game since: 
+                    b #{moment(room.created).fromNow()} 
+                    |  / Your time: 
+                    b 03:00
+
+                a(href="/chess/home/").out-box Back to painel 
+                    span.icon-logout(aria-hidden="true")
+
+                hr
+
+                .painel-wrap
+                    .user-box.player.player1.active(data-player=player1._id.toString())
+                        .user-box-content
+                            span.status
+                            .user-photo
+                                img(src=player1.picture, alt='')
+                            .user-info
+                                .user-name #{player1.name}
+                                span.user-status online
+                                a.user-pieces(href="#", data-toggle="popover", data-content="<ul class='out-pieces-box'><li class='piece-out'><span aria-hidden='true' class='icon-pawn'></span></li><li class='piece-out'><span aria-hidden='true' class='icon-pawn'></span></li><li class='piece-out'><span aria-hidden='true' class='icon-pawn'></span></li><li class='piece-out'><span aria-hidden='true' class='icon-pawn'></span></li><li class='piece-out'><span aria-hidden='true' class='icon-pawn'></span></li></ul>") Captured pieces 
+                         
+                    .user-box.player.player2(data-player=player2._id.toString())
+                        .user-box-content
+                            span.status.off
+                            .user-photo
+                                img(src=player2.picture, alt='')
+                            .user-info
+                                .user-name #{player2.name}
+                                span.user-status offline
+                                a.user-pieces(href="#", data-toggle="popover", data-content="<ul class='out-pieces-box'><li class='piece-out white'><span aria-hidden='true' class='icon-pawn'></span></li><li class='piece-out white'><span aria-hidden='true' class='icon-pawn'></span></li></ul>") Captured pieces 
+                         
+                .painel-wrap
+                    .messages-wrap
+                        h6 Messages
+                        .messages-container
+                            .messages-content
+                                each chat in room.chat.reverse()
+                                    +chatMsg(chat.player, {msg: chat.message, date:chat.date})
+
+                        textarea(row="5").messages-send
+
+                        .btn.btn-default.messages-btn Send
+
+                    .log-wrap
+                        h6 Game history
+                            .log-container
+                                ul.log-list
+                                    each log in room.log.reverse()
+                                        if (log.action == 'move')
+                                            +addLog(log)
+ 
+                hr
+
+                a(href="#modal-bug", data-toggle="modal").btn-link Do you see a bug? Notify us ;) 
+
+                a(href="#modal-give-up", data-toggle="modal").out-box Give up this game 
+                    span.icon-flag(aria-hidden="true")
+    
+    .modal.fade(id="modal-give-up", tabindex="-1", role="dialog", aria-labelledby="modal-give-up-label", aria-hidden="true")                                        
+ 
+        .modal-dialog.modal-sm
+            .modal-content
+
+                .modal-header
+                    button.close(data-dismiss="modal")
+                        span.icon-close(aria-hidden="true")        
+
+                .modal-body
+                    p Are you sure you want to give up the game? 
+
+                .modal-footer
+                    button.btn.btn-danger Yes 
+                    button.btn.btn-default(data-dismiss="modal") No                                     
+     
+     .modal.fade(id="modal-bug", tabindex="-1", role="dialog", aria-labelledby="modal-bug-label", aria-hidden="true")                                        
+ 
+        .modal-dialog
+            .modal-content
+
+                .modal-header
+                    button.close(data-dismiss="modal")
+                        span.icon-close(aria-hidden="true")        
+
+                .modal-body
+                    form.form 
+                        fieldset
+                           input(type="text", placeholder="Your name").form-control
+                           input(type="email", placeholder="Your email").form-control
+                           textarea(rows="3", placeholder="Your message").form-control
+                                        
+
+                .modal-footer
+                    button.btn-link(data-dismiss="modal") Cancel    
+                    button.btn.btn-primary Send                                  
+      
+
+      .modal.fade(id="modal-win", tabindex="-1", role="dialog", aria-labelledby="modal-bug-label", aria-hidden="true")                                        
+ 
+        .modal-dialog
+            .modal-content
+
+                .modal-header
+                    button.close(data-dismiss="modal")
+                        span.icon-close(aria-hidden="true")        
+
+                .modal-body
+                    p.p-end.p-success(id="game-won") You won the game!
+                        span.smile
+                            span.icon-grin(aria-hidden="true") 
+ 
+                    p.p-end.p-danger(id="game-lose") You lose the game...
+                        span.smile
+                            span.icon-sad(aria-hidden="true") 
+
+                    hr
+
+                    p Do you want to share on Facebook?  
+                                        
+
+                .modal-footer
+                    button.btn-link(data-dismiss="modal") Cancel    
+                    button.btn.btn-primary(id="btn-share") Share!   

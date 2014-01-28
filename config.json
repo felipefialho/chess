@@ -1,0 +1,11 @@
+{
+	"port": 80,
+	"enviroment": "dev",
+	"facebook": {
+		"appId": "602807239779512", 
+		"secret": "af49d707c24684fcff3e7ac930f8b6f2"
+	},
+	"database": {
+		"host": "mongodb://localhost/chess"
+	}
+}

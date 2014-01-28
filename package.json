@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "title": "nodejs server",
+  "homepage": "",
+  "author": {
+    "name": "Thiago Genuino",
+    "email": "thiago@genuino.com.br",
+    "url": "http://www.thiagogenuino.com.br/"
+  },
+  "devDependencies": {
+    "express": "*",
+    "jade": "*",
+    "facebook-node-sdk": "*",
+    "socket.io": "*",
+    "mongoose": "*",
+    "moment": "*"
+  }
+}
