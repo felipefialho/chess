@@ -22,11 +22,13 @@ Chess developed in HTML, CSS and Javascript, created and maintained by [Thiago G
 
 Clone the project and install dependencies
 
-	git clone https://github.com/chessjs/chess
-	cd chess
-	npm install
-	cd public
-	npm install
+``` 
+git clone https://github.com/chessjs/chess
+cd chess
+npm install
+cd public
+npm install
+``` 
 
 ## Assets of project
 
@@ -54,9 +56,11 @@ public/
 You need only change the `components/*` `*.less` and `_script/*`...
 
 ### For watch CSS and JavaScript
- 
- 	cd public/
-	grunt w
+
+``` 
+cd public/
+grunt w
+```	
    
 Start hacking away! 
  
