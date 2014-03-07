@@ -2,7 +2,7 @@
 
 Chess developed in HTML, CSS and Javascript, created and maintained by [Thiago Genuino](https://twitter.com/tgenuino) and [Felipe Fialho](http://www.felipefialho.com/)..
 
-### [Play the game!](http://chessjs.trendi.com.br/chess)
+### [Play the game!](http://chessjs.trendi.com.br/chess/)
 
 ## Getting Started
 
