@@ -3,9 +3,9 @@
 //! authors : Thiago Genuino, Luiz Felipe
 //! contributor : Trendi Relevance Builders http://trendi.com.br
 //! license : MIT
-(function(undefined) {
+((undefined) => {
 
-    var express = require('express')
+    const express = require('express')
         , app = module.exports = express()
         , config = require('./config.json')
         , server = require('http').createServer(app)

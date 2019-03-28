@@ -8,7 +8,7 @@ module.exports = function(app, req, res, params) {
             dbUser2.countActiveGames(function(gamesp2) {
 
                 if ((gamesp1 < 10) || (gamesp2 < 10)) {
-                    var room = new app.models.room({
+                    const room = new app.models.room({
                         requestId: params[0],
                         players: {
                             p1: req.session.me._id,

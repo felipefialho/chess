@@ -1,11 +1,11 @@
-var moment = require('moment');
+const moment = require('moment');
 
 module.exports = function(app, req, res, params) {
     app.models.room.findOne({_id: params[0]}).populate('players.p1 players.p2 log.player chat.player').exec(function(err, room) {
         
-        var player1 = null;
-        var player2 = null;
-        var playerIdx = 1;
+        const player1 = null;
+        const player2 = null;
+        const playerIdx = 1;
         if (req.session.meFB.id == room.players.p1.facebookId) {
             player1 = room.players.p1;
             player2 = room.players.p2;
@@ -16,7 +16,7 @@ module.exports = function(app, req, res, params) {
         }
 
         if (player1) {
-            var data = {
+            const data = {
                 roomId: params[0],
                 room: room,
                 moment: moment,
