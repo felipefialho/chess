@@ -1,4 +1,4 @@
-var moment = require('moment');
+const moment = require('moment');
 
 module.exports = function(app, req, res) {
     app.checkUser(req.session.meFB.id, function(dbUser) {
@@ -7,16 +7,16 @@ module.exports = function(app, req, res) {
             
             req.session.me.getWinsAndLoses(function(wins ,loses) {
                 
-                var getWinsLosesIds = [];
+                const getWinsLosesIds = [];
 
-                for(var i = 0, x = req.session.meFB.friends.data.length; i < x ; i++) {
+                for(const i = 0, x = req.session.meFB.friends.data.length; i < x ; i++) {
                     getWinsLosesIds.push({facebookId: req.session.meFB.friends.data[i].id})
                 }
 
                 app.models.user.find({$or: getWinsLosesIds}, function(err, friendsResult) {
-                    var friendsInfo = {};
+                    const friendsInfo = {};
 
-                    for(var i = 0, x = friendsResult.length; i < x ; i++) {
+                    for(const i = 0, x = friendsResult.length; i < x ; i++) {
                         friendsInfo[friendsResult[i].facebookId] = friendsResult[i];
                     }
 

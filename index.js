@@ -5,7 +5,7 @@
 //! license : MIT
 (function(undefined) {
 
-    var express = require('express')
+    const express = require('express')
         , app = module.exports = express()
         , config = require('./config.json')
         , server = require('http').createServer(app)
