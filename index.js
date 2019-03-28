@@ -3,7 +3,7 @@
 //! authors : Thiago Genuino, Luiz Felipe
 //! contributor : Trendi Relevance Builders http://trendi.com.br
 //! license : MIT
-(function(undefined) {
+((undefined) => {
 
     const express = require('express')
         , app = module.exports = express()

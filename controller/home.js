@@ -9,14 +9,14 @@ module.exports = function(app, req, res) {
                 
                 const getWinsLosesIds = [];
 
-                for(const i = 0, x = req.session.meFB.friends.data.length; i < x ; i++) {
+                for(let i = 0, x = req.session.meFB.friends.data.length; i < x ; i++) {
                     getWinsLosesIds.push({facebookId: req.session.meFB.friends.data[i].id})
                 }
 
                 app.models.user.find({$or: getWinsLosesIds}, function(err, friendsResult) {
                     const friendsInfo = {};
 
-                    for(const i = 0, x = friendsResult.length; i < x ; i++) {
+                    for(let i = 0, x = friendsResult.length; i < x ; i++) {
                         friendsInfo[friendsResult[i].facebookId] = friendsResult[i];
                     }
 

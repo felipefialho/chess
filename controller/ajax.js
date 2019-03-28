@@ -1,9 +1,9 @@
-var methods = {
-    checkGames: function(req, res) {
+const methods = {
+    checkGames: (req, res) => {
         req.session.me.getActiveGames(function(rooms) {
-            var data = [];
+            const data = [];
 
-            for(var i = 0, x = rooms.length; i < x ; i++) {
+            for(let i = 0, x = rooms.length; i < x ; i++) {
                 data.push(rooms[i]._id);
             }
 
