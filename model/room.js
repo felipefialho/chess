@@ -1,6 +1,6 @@
-var app = module.parent.exports.app;
-var mongoose = require('mongoose');
-var schema = new mongoose.Schema({
+let app = module.parent.exports.app;
+const mongoose = require('mongoose');
+const schema = new mongoose.Schema({
     winner: { type: Number, default: null },
     endDate: { type: Date, default: null },
     players: {
@@ -113,21 +113,21 @@ var schema = new mongoose.Schema({
     updated: { type: Date, default: Date.now }
 });
 
-schema.statics.countActiveGames = function(cb) {
+schema.statics.countActiveGames = (cb) => {
     return this.model('room')
-            .count({endDate: null}, function(err, count) {
+            .count({endDate: null}, (err, count) => {
                 cb(count);
             });
 };
 
-schema.statics.countAllGames = function(cb) {
+schema.statics.countAllGames = (cb)=> {
     return this.model('room')
-            .count(function(err, count) {
+            .count((err, count)=> {
                 cb(count);
             });
 };
 
-schema.pre('save', function(next) {
+schema.pre('save', (next) => {
     this.updated = new Date();
     next();
 });

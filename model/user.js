@@ -1,6 +1,6 @@
-var app = module.parent.exports.app;
-var mongoose = require('mongoose');
-var schema = new mongoose.Schema({
+let app = module.parent.exports.app;
+const mongoose = require('mongoose');
+const schema = new mongoose.Schema({
     facebookId: Number,
     name: String,
     picture: String,
@@ -10,58 +10,58 @@ var schema = new mongoose.Schema({
     updated: { type: Date, default: Date.now }
 });
 
-schema.statics.countAllUsers = function(cb) {
+schema.statics.countAllUsers = (cb) => {
     return this.model('user')
-            .count(function(err, count) {
+            .count((err, count) => {
                 cb(count);
             });
 };
 
-schema.methods.countActiveGames = function(cb) {
+schema.methods.countActiveGames = (cb) => {
     return this.model('room')
-            .count({winner: null, $or: [{'players.p1': this._id}, {'players.p2': this._id}]}, function(err, count) {
+            .count({winner: null, $or: [{'players.p1': this._id}, {'players.p2': this._id}]}, (err, count) =>{
                 cb(count);
             });
 };
 
-schema.methods.getActiveGames = function(cb) {
+schema.methods.getActiveGames = (cb) => {
     return this.model('room')
     		.find({endDate: null, $or: [{'players.p1': this._id}, {'players.p2': this._id}]})
     		.populate('players.p1 players.p2')
-    		.exec(function(err, games) {
+    		.exec((err, games) => {
 		    	cb(games);
 		    });
 };
 
-schema.methods.getWins = function(cb) {
+schema.methods.getWins = (cb) => {
     return this.model('room')
     		.find({endDate: {$ne: null}, $or: [{'players.p1': this._id, winner: 1}, {'players.p2': this._id, winner:2}]})
     		.populate('players.p1 players.p2')
-    		.exec(function(err, wins) {
+    		.exec((err, wins) => {
 		    	cb(wins);
 		    });
 };
 
-schema.methods.getLoses = function(cb) {
+schema.methods.getLoses = (cb) => {
     return this.model('room')
     		.find({endDate: {$ne: null}, $or: [{'players.p1': this._id, winner: 2}, {'players.p2': this._id, winner:1}]})
     		.populate('players.p1 players.p2')
-    		.exec(function(err, loses) {
+    		.exec((err, loses) => {
 		    	cb(loses);
 		    });
 };
 
-schema.methods.getWinsAndLoses = function(cb) {
-	var self = this;
-	self.getWins(function(wins) {
-		self.getLoses(function(loses) {
+schema.methods.getWinsAndLoses = (cb) => {
+	const self = this;
+	self.getWins((wins)=> {
+		self.getLoses((loses) => {
 			cb(wins, loses);
 		});
 	});
 };
 
 
-schema.pre('save', function(next) {
+schema.pre('save', (next) => {
     this.updated = new Date();
     next();
 });
